@@ -5,7 +5,8 @@
 \usepackage{ifthen}
 \usepackage[landscape]{geometry}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
-
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
 
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
@@ -23,7 +24,7 @@
                                 {-1explus -.5ex minus -.2ex}%
                                 {0.5ex plus .2ex}%
                                 {\normalfont\normalsize\bfseries}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+\renewcommand{\subsection}{\@startsection{subsection}{3}{0mm}%
                                 {-1ex plus -.5ex minus -.2ex}%
                                 {1ex plus .2ex}%
                                 {\normalfont\small\bfseries}}
@@ -102,6 +103,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item Question/Answer (Q&A): "Q: What is 2+2? A: "
 \end{itemize}
 
+\section{Prompting Technics}
 \subsection{Zero-Shot Prompting}
 \begin{itemize}
     \item Asking a model without giving examples.
@@ -112,7 +114,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item Including examples before the actual question.
 \end{itemize}
 
-\subsubsection{Example of Few-Shot:}
+\subsection{Example of Few-Shot:}
 \begin{itemize}
     \item Q: What color is the sky on a clear day? 
     \item A: Blue
@@ -150,7 +152,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Ask the LLM to explain a topic in one sentence.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "Explain the above in one sentence."
     \item \textbf{Output:} "Antibiotics are medications to stop bacterial infections, not viruses."
@@ -162,7 +164,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Specify what information to extract, e.g., a product mention.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "Mention the large language model mentioned above."
     \item \textbf{Output:} "ChatGPT."
@@ -174,7 +176,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Provide context, question, and tell the LLM to be precise.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "What was OKT3 originally sourced from?"
     \item \textbf{Output:} "Mice."
@@ -186,7 +188,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Instruct the LLM to categorize as neutral, negative, or positive.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "Classify the sentiment: 'The food was okay.'"
     \item \textbf{Output:} "Neutral."
@@ -198,7 +200,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Make it sound technical or simple for different audiences.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "AI, tell me about black holes."
     \item \textbf{Output:} "Black holes are like space vacuums..."
@@ -210,7 +212,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Tell the LLM to write code for a greeting or a database query.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "Ask for the user's name and greet them."
     \item \textbf{Output:} "let name = prompt('Your name?'); console.log(`Hello, ${name}!`);"
@@ -222,13 +224,13 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item \textbf{Example:} Correct the LLM if it makes an error and refine the prompt.
 \end{itemize}
 
-\subsubsection{Example Prompt:}
+\subsection{Example Prompt:}
 \begin{itemize}
     \item \textbf{Prompt:} "Add the odd numbers: 15, 32, 5, 13, 82, 7, 1."
     \item \textbf{Output:} "The sum of odd numbers is 41, which is an odd number."
 \end{itemize}
 
-\section{Zero-Shot Prompting}
+\subsection{Zero-Shot Prompting}
 \begin{itemize}
     \item Big AI models like GPT-3 can do tasks with no training examples, called "zero-shot."
     \item Tried zero-shot in last part.
@@ -236,7 +238,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \item If zero-shot does not work, give the AI examples to help it learn, called "few-shot."
 \end{itemize}
 
-\section{Few-Shot Prompting}
+\subsection{Few-Shot Prompting}
 \begin{itemize}
     \item What is Few-Shot Prompting?
     \begin{itemize}
@@ -264,7 +266,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \end{itemize}
 \end{itemize}
 
-\section{Chain-of-Thought Prompting (CoT)}
+\subsection{Chain-of-Thought Prompting (CoT)}
 \begin{itemize}
     \item CoT is a method where you solve problems by showing the steps you take to find the answer. It's like explaining your thinking on paper.
     \item Example:
@@ -274,7 +276,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \end{itemize}
 \end{itemize}
 
-\section{In Zero-shot CoT Prompting}
+\subsection{In Zero-shot CoT Prompting}
 \begin{itemize}
     \item This is doing CoT without showing examples first. You just tell the machine to "think step by step."
     \item With CoT:
@@ -284,7 +286,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \end{itemize}
 \end{itemize}
 
-\section{Automatic Chain-of-Thought (Auto-CoT)}
+\subsection{Automatic Chain-of-Thought (Auto-CoT)}
 \begin{itemize}
     \item Auto-CoT is about getting a machine to do CoT by itself without much help. It chooses different questions and makes its own examples.
     \item Auto-CoT Steps:
@@ -295,7 +297,7 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
     \end{enumerate}
 \end{itemize}
 
-\section{Self-Consistency in Prompt Engineering}
+\subsection{Self-Consistency in Prompt Engineering}
 \begin{itemize}
     \item Definition: An advance method to improve answers by generating multiple reasoning paths and choosing the most consistent one.
     \item How it works:
@@ -353,6 +355,12 @@ Tip: Change temp or top\_p, not both. Same for freq and pres pen.
         \item LMs discuss steps like a team of experts.
     \end{itemize}
 \end{itemize}
+
+\subsection{The difference of Chain Technics}
+% image here named chain_technics.png
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{difference_of_tot.png}
+\end{center}
 
 \subsection{Retrieval Augmented Generation (RAG)}
 \begin{itemize}
